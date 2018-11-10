@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/OpenTl.ClientApi/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/OpenTl.ClientApi/assets/img/favicon.ico" type="image/x-icon">
-        <title>OpenTl.ClientApi - API - IUpdatesRaiser Interface</title>
+        <title>OpenTl.ClientApi - API - IAutoUpdatesHandler Interface</title>
         <link href="/OpenTl.ClientApi/assets/css/mermaid.css" rel="stylesheet">
         <link href="/OpenTl.ClientApi/assets/css/highlight.css" rel="stylesheet">
         <link href="/OpenTl.ClientApi/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
@@ -70,7 +70,8 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Syntax">Syntax</a></p>
+	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
+<p><a href="#Syntax">Syntax</a></p>
 <p><a href="#Methods">Methods</a></p>
 <hr class="infobar-hidden">
 </div>
@@ -135,6 +136,7 @@
 		<li role="separator" class="divider"></li>
 			<li class="header">Interface Types</li>
 				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto/IApplicationProperties">I<wbr>Application<wbr>Properties</a></li>
+				<li class="selected"><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto/IAutoUpdatesHandler">IAutoUpdatesHandler</a></li>
 				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto/IClientSession">IClientSession</a></li>
 				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto/IClientSettings">IClientSettings</a></li>
 				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto/ILogoutService">ILogoutService</a></li>
@@ -142,7 +144,6 @@
 				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto/IRequestSender">IRequestSender</a></li>
 				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto/ISessionWriter">ISessionWriter</a></li>
 				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto/ISocks5Proxy">ISocks5Proxy</a></li>
-				<li class="selected"><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto/IUpdatesRaiser">IUpdatesRaiser</a></li>
 
 
                     </ul>
@@ -157,12 +158,16 @@
 
 
 <section class="content-header">
-	<h1>IUpdatesRaiser <small>Interface</small></h1>
+	<h1>IAutoUpdatesHandler <small>Interface</small></h1>
 </section>
 <section class="content">
 	
 	
-	
+		<h1 id="Summary">Summary</h1>
+	<div class="lead">
+        Handle auto updates
+    </div>
+
 		<div class="panel panel-default">
   			<div class="panel-body">
 				<div class="row">
@@ -180,7 +185,7 @@
 					<div class="col-md-6">
 						<div class="mermaid">
 							graph TD
-	Type["IUpdatesRaiser"]
+	Type["IAutoUpdatesHandler"]
 class Type type-node
 
 						</div>
@@ -190,7 +195,7 @@ class Type type-node
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public interface IUpdatesRaiser</code></pre>
+	<pre><code>public interface IAutoUpdatesHandler</code></pre>
 
 
 
@@ -213,8 +218,8 @@ class Type type-node
 							</tr>
 						</thead>
 							<tbody><tr>
-								<td><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto/IUpdatesRaiser/12492E75.html">OnUpdateRecieve<wbr>(IUpdates)<wbr></a></td>
-								<td>Task</td>
+								<td><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto/IAutoUpdatesHandler/03846B5C.html">HandleAutoUpdates<wbr>(IUpdates)<wbr></a></td>
+								<td>void</td>
 								<td>
 									<div></div>
 								</td>

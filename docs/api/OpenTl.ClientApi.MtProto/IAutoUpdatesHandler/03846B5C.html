@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/OpenTl.ClientApi/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/OpenTl.ClientApi/assets/img/favicon.ico" type="image/x-icon">
-        <title>OpenTl.ClientApi - API - IAuthService.IsPhoneRegisteredAsync(string, CancellationToken) Method</title>
+        <title>OpenTl.ClientApi - API - IAutoUpdatesHandler.HandleAutoUpdates(IUpdates) Method</title>
         <link href="/OpenTl.ClientApi/assets/css/mermaid.css" rel="stylesheet">
         <link href="/OpenTl.ClientApi/assets/css/highlight.css" rel="stylesheet">
         <link href="/OpenTl.ClientApi/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
@@ -70,8 +70,7 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
-<p><a href="#Syntax">Syntax</a></p>
+	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Syntax">Syntax</a></p>
 <p><a href="#Parameters">Parameters</a></p>
 <p><a href="#ReturnValue">Return Value</a></p>
 <hr class="infobar-hidden">
@@ -133,19 +132,12 @@
                     <ul class="sidebar-menu">
                         
 			<li class="header">Namespace</li>
-		<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces">OpenTl<wbr>.ClientApi<wbr>.Services<wbr>.Interfaces</a></li>
+		<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto">OpenTl<wbr>.ClientApi<wbr>.MtProto</a></li>
 		<li class="header">Type</li>
-		<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IAuthService">IAuthService</a></li>
+		<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto/IAutoUpdatesHandler">IAutoUpdatesHandler</a></li>
 		<li role="separator" class="divider"></li>
-			<li class="header">Property Members</li>
-				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IAuthService/99088D81.html">CurrentUserId</a></li>
 			<li class="header">Method Members</li>
-				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IAuthService/2E4AA088.html">Check<wbr>Cloud<wbr>Password<wbr>Async<wbr>(string, <wbr>CancellationToken)<wbr></a></li>
-				<li class="selected"><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IAuthService/BB1D2C80.html">Is<wbr>Phone<wbr>Registered<wbr>Async<wbr>(string, <wbr>CancellationToken)<wbr></a></li>
-				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IAuthService/BCD2DAA1.html">LogoutAsync<wbr>(CancellationToken)<wbr></a></li>
-				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IAuthService/1175765B.html">SendCodeAsync<wbr>(string, <wbr>CancellationToken)<wbr></a></li>
-				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IAuthService/7870583D.html">SignInAsync<wbr>(string, <wbr>ISentCode, <wbr>string, <wbr>CancellationToken)<wbr></a></li>
-				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IAuthService/8AC60B76.html">SignUpAsync<wbr>(string, <wbr>ISentCode, <wbr>string, <wbr>string, <wbr>string, <wbr>CancellationToken)<wbr></a></li>
+				<li class="selected"><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto/IAutoUpdatesHandler/03846B5C.html">HandleAutoUpdates<wbr>(IUpdates)<wbr></a></li>
 
 
                     </ul>
@@ -160,31 +152,29 @@
 
 
 <section class="content-header">
-			<h3><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IAuthService">IAuthService</a>.</h3>
-	<h1>Is<wbr>Phone<wbr>Registered<wbr>Async<wbr>(string, <wbr>CancellationToken)<wbr> <small>Method</small></h1>
+			<h3><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto/IAutoUpdatesHandler">IAutoUpdatesHandler</a>.</h3>
+	<h1>HandleAutoUpdates<wbr>(IUpdates)<wbr> <small>Method</small></h1>
 </section>
 <section class="content">
 	
 	
-		<h1 id="Summary">Summary</h1>
-	<div class="lead">Checks phone number is registered on server</div>
-
+	
 		<div class="panel panel-default">
   			<div class="panel-body">	
 				<dl class="dl-horizontal">	
 						
 						<dt>Namespace</dt>
-						<dd><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces">OpenTl<wbr>.ClientApi<wbr>.Services<wbr>.Interfaces</a></dd>
+						<dd><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto">OpenTl<wbr>.ClientApi<wbr>.MtProto</a></dd>
 					
 						<dt>Containing Type</dt>
-						<dd><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IAuthService">IAuthService</a></dd>		
+						<dd><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.MtProto/IAutoUpdatesHandler">IAutoUpdatesHandler</a></dd>		
 					
 				</dl>
   			</div>
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>Task&lt;bool&gt; IsPhoneRegisteredAsync(string phoneNumber, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+	<pre><code>void HandleAutoUpdates(IUpdates update)</code></pre>
 
 
 
@@ -202,14 +192,9 @@
 					</tr>
 				</thead>
 					<tbody><tr>
-						<td>phoneNumber</td>
-						<td>string</td>
-						<td>Phone number</td>
-					</tr>
-					<tr>
-						<td>cancellationToken</td>
-						<td>CancellationToken</td>
-						<td>Сancellation token</td>
+						<td>update</td>
+						<td>IUpdates</td>
+						<td></td>
 					</tr>
 			</tbody></table>
 		</div>
@@ -226,7 +211,7 @@
 					</tr>
 				</thead>
 				<tbody><tr>
-					<td>Task<wbr>&lt;TResult&gt;<wbr></td>
+					<td>void</td>
 					<td></td>
 				</tr>
 			</tbody></table>

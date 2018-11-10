@@ -1,4 +1,6 @@
-﻿namespace OpenTl.ClientApi.SampeApp
+﻿using Newtonsoft.Json;
+
+namespace OpenTl.ClientApi.SampeApp
 {
     using System;
     using System.Threading.Tasks;
@@ -17,6 +19,15 @@
         {
             _clientApi = await ClientFactory.BuildClientAsync(factorySettings).ConfigureAwait(false);
             
+            _clientApi.UpdatesService.AutoReceiveUpdates += update =>
+            {
+                Console.WriteLine($"updates: {JsonConvert.SerializeObject(update)}");
+            };
+
+            if (_clientApi.AuthService.CurrentUserId.HasValue)
+            {
+                _clientApi.UpdatesService.StartReceiveUpdates(TimeSpan.FromSeconds(1));
+            }
         }
 
         public async Task LogOut()
@@ -46,9 +57,11 @@
 
                 _user = await _clientApi.AuthService.CheckCloudPasswordAsync(passwordStr).ConfigureAwait(false);
             }
-            catch (PhoneCodeInvalidException ex)
+            catch (PhoneCodeInvalidException)
             {
             }
+            
+             _clientApi.UpdatesService.StartReceiveUpdates(TimeSpan.FromSeconds(1));
         }
     }
 }

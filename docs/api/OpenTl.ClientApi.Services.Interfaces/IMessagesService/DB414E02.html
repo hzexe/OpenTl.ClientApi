@@ -197,7 +197,7 @@
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>Task&lt;IReadOnlyList&lt;TReceivedNotifyMessage&gt;&gt; ReceivedMessagesAsync(int maxId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+	<pre><code>Task&lt;IReadOnlyList&lt;IReceivedNotifyMessage&gt;&gt; ReceivedMessagesAsync(int maxId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
 
 
 
@@ -239,7 +239,7 @@
 					</tr>
 				</thead>
 				<tbody><tr>
-					<td>Task<wbr>&lt;TResult&gt;<wbr></td>
+					<td>Task<wbr>&lt;IReadOnlyList<wbr>&lt;I<wbr>Received<wbr>Notify<wbr>Message&gt;<wbr>&gt;<wbr></td>
 					<td>Notifications</td>
 				</tr>
 			</tbody></table>

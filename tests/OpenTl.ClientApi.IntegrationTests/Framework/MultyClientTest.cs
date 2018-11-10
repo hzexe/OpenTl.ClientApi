@@ -1,5 +1,9 @@
-﻿namespace OpenTl.ClientApi.IntegrationTests.Framework
+﻿using OpenTl.ClientApi.MtProto.Exceptions;
+using OpenTl.Schema.Updates;
+
+namespace OpenTl.ClientApi.IntegrationTests.Framework
 {
+    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
@@ -19,9 +23,9 @@
     
     public abstract class MultyClientTest: BaseTest
     {
-        private const string PhoneTemplate = "999661000";
+        private const string PhoneTemplate = "999662000";
 
-        private const string PhoneCode = "11111";
+        private const string PhoneCode = "22222";
 
         protected abstract int ClientsCount { get; }
 
@@ -46,18 +50,18 @@
                 {
                     var sentCode = await clientApi.AuthService.SendCodeAsync(phoneNumber).ConfigureAwait(false);
 
-                    await Task.Delay(5000).ConfigureAwait(false);
-                        
-                    if (await clientApi.AuthService.IsPhoneRegisteredAsync(phoneNumber).ConfigureAwait(false))
+                    try
                     {
                         user = await clientApi.AuthService.SignInAsync(phoneNumber, sentCode, PhoneCode).ConfigureAwait(false);
                     }
-                    else
+                    catch (PhoneNumberUnoccupiedException)
                     {
-                        user = await clientApi.AuthService.SignUpAsync(phoneNumber, sentCode, PhoneCode, "Test", "Test").ConfigureAwait(false);
+                        user = await clientApi.AuthService.SignUpAsync(phoneNumber, sentCode, PhoneCode, "Test", "Test")
+                            .ConfigureAwait(false);
                     }
 
-                    await Task.Delay(3000).ConfigureAwait(false);
+                    await Task.Delay(5000).ConfigureAwait(false);
+
                 }
                 else
                 {
@@ -68,7 +72,7 @@
                 var contacts = await clientApi.ContactsService.GetContactsAsync().ConfigureAwait(false);
 
                 var index = i;
-                clientApi.UpdatesService.RecieveUpdates += async update => await HandleUpdate(update, clientApi, index).ConfigureAwait(false);
+                clientApi.UpdatesService.AutoReceiveUpdates += async update => await HandleUpdate(update, clientApi, index).ConfigureAwait(false);
 
                 Clients.Add(
                     new ClientItem

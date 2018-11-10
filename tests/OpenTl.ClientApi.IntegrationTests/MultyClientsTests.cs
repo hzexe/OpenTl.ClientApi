@@ -1,4 +1,6 @@
-﻿namespace OpenTl.ClientApi.IntegrationTests
+﻿using OpenTl.Schema.Updates;
+
+namespace OpenTl.ClientApi.IntegrationTests
 {
     using System;
     using System.Collections.Generic;
@@ -19,7 +21,7 @@
 
         public int SendCount { get; set; }
 
-        public int RecieveCount { get; set; }
+        public int ReceiveCount { get; set; }
     }
 
     public sealed class MultyClientsTests : MultyClientTest
@@ -31,7 +33,7 @@
 
         private int MessagesCount =>  ClientsCount * 4;
 
-        protected override int ClientsCount { get; } = 3;
+        protected override int ClientsCount { get; } = 2;
 
         public MultyClientsTests(ITestOutputHelper output) : base(output)
         {
@@ -49,34 +51,35 @@
 
             await Task.Delay(MessagesCount * 2500 + 1000);
 
-            Assert.All(_statistics, statistic => Assert.Equal(statistic.SendCount, statistic.RecieveCount));
+            Assert.All(_statistics, statistic => Assert.Equal(statistic.SendCount, statistic.ReceiveCount));
         }
 
         protected override async Task HandleUpdate(IUpdates update, IClientApi clientApi, int index)
         {
             switch (update)
             {
-                case TUpdateShortMessage updateShortMessage:
+                    case TUpdateShortMessage updateShortMessage:
                     if (updateShortMessage.Message.StartsWith("Test_"))
                     {
                         var stat = _statistics.First(s => s.FromUserId == updateShortMessage.UserId && s.ToUserId == clientApi.AuthService.CurrentUserId.Value);
-                        stat.RecieveCount++;
+                        stat.ReceiveCount++;
 
                         await Task.Delay(1500).ConfigureAwait(false);
                         await SendMessage(clientApi, index).ConfigureAwait(false);
-                    }
-
+                    }  
+                        break;
+                case TUpdates _:
                     break;
-                case TUpdates updates:
+                case TUpdatesCombined _:
                     break;
-                case TUpdatesCombined updatesCombined:
+                case TUpdateShortChatMessage _:
                     break;
-                case TUpdateShortChatMessage updateShortChatMessage:
+                case TUpdateShortSentMessage _:
                     break;
-                case TUpdateShortSentMessage updateShortSentMessage:
+                case TUpdatesTooLong _:
                     break;
-                case TUpdatesTooLong updatesTooLong:
-                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(update));
             }
         }
 

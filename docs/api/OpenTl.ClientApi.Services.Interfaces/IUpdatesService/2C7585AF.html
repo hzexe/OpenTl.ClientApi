@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/OpenTl.ClientApi/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/OpenTl.ClientApi/assets/img/favicon.ico" type="image/x-icon">
-        <title>OpenTl.ClientApi - API - IUpdatesService.RecieveUpdates Event</title>
+        <title>OpenTl.ClientApi - API - IUpdatesService.AutoReceiveUpdates Event</title>
         <link href="/OpenTl.ClientApi/assets/css/mermaid.css" rel="stylesheet">
         <link href="/OpenTl.ClientApi/assets/css/highlight.css" rel="stylesheet">
         <link href="/OpenTl.ClientApi/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
@@ -138,8 +138,11 @@
 			<li class="header">Method Members</li>
 				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IUpdatesService/549BAA96.html">GetCurrentStateAsync<wbr>(CancellationToken)<wbr></a></li>
 				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IUpdatesService/4F31D141.html">GetUpdatesFromState<wbr>(IState, <wbr>CancellationToken)<wbr></a></li>
+				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IUpdatesService/DA120F36.html">StartReceiveUpdates<wbr>(TimeSpan)<wbr></a></li>
+				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IUpdatesService/7139E47C.html">StopReceiveUpdates<wbr>()<wbr></a></li>
 			<li class="header">Event Members</li>
-				<li class="selected"><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IUpdatesService/D1646E8B.html">RecieveUpdates</a></li>
+				<li class="selected"><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IUpdatesService/2C7585AF.html">AutoReceiveUpdates</a></li>
+				<li><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IUpdatesService/8B395645.html">ManualReceiveUpdates</a></li>
 
 
                     </ul>
@@ -155,13 +158,13 @@
 
 <section class="content-header">
 			<h3><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IUpdatesService">IUpdatesService</a>.</h3>
-	<h1>RecieveUpdates <small>Event</small></h1>
+	<h1>AutoReceiveUpdates <small>Event</small></h1>
 </section>
 <section class="content">
 	
 	
 		<h1 id="Summary">Summary</h1>
-	<div class="lead">Get automatic updates</div>
+	<div class="lead">Get auto updates</div>
 
 		<div class="panel panel-default">
   			<div class="panel-body">
@@ -174,14 +177,14 @@
 						<dd><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/IUpdatesService">IUpdatesService</a></dd>		
 					
 						<dt>Event Type</dt>
-						<dd><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/UpdateHandler">UpdateHandler</a></dd>
+						<dd><a href="/OpenTl.ClientApi/api/OpenTl.ClientApi.Services.Interfaces/AutoUpdateHandler">AutoUpdateHandler</a></dd>
 					
 				</dl>
   			</div>
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>event UpdateHandler RecieveUpdates</code></pre>
+	<pre><code>event AutoUpdateHandler AutoReceiveUpdates</code></pre>
 
 
 
